@@ -3,7 +3,7 @@ A low-cost orderbook-based decentralized exchange for Ethereum
 
 ## What does that mean?
 - Low-cost: only takes 1 transaction (excluding token approvals)
-- Orderbook-based: users offer different prices to buy and sell at ()
+- Orderbook-based: users offer different prices to buy and sell at
 - Decentralized: no trust is needed in anyone
 - Exchange: users can trade between different cryptocurrencies
 - For Ethereum: any EVM-compatible blockchain is capable of running prooftrade
