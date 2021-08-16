@@ -9,9 +9,14 @@ A low-cost orderbook-based decentralized exchange for Ethereum
 - For Ethereum: any EVM-compatible blockchain is capable of running prooftrade
 
 ## What advantages does it offer compared to AMMs (automated market makers)?
-- Non-custodial: there is no liquidity pool where users need to lock up tokens
-- No slippage: since each order has a pre-determined amount and price, the price doesn't change.
-This prevents many MEV-related attacks.
+
+| Attribute | prooftrade | UniswapV3 | UniswapV2 |
+| --- | --- | --- | --- |
+| Freely Licensed | Yes | No | Yes |
+| Zero slippage | Yes | No | No |
+| Zero LP fees | Almost (only needs approval once) | No | No |
+| Allows limit orders | Yes | Yes | No |
+| Gas needed per trade | 137,203 | 129,830 | 105,657 |
 
 ## Frameworks Used
 - [Hardhat](https://hardhat.org/)
@@ -40,7 +45,13 @@ Here, Person B would execute the `sell` function, since they are trading their t
 ## Usage
 - Run `npm run test` or `npx hardhat test` to run tests.
 - The `OrderFiller` contract can be deployed as a standalone contract for a given pair of tokens.
-(Disclaimer: this project is still in development and has not received any audits)
+(Disclaimer: this project is still in development, has some trade-offs to consider (see below), and has not received any audits)
+
+## Things to consider
+- A liquidity provider can prevent a trade with them from occurring by transfering their tokens to a different account
+    - I'm unsure if I want this to be possible
+    - It is good for the liquidity provider because they can cancel their order if they don't like it anymore
+    - It is bad because they can spoof orders and waste people's time an gas
 
 ## Resources Used
 - [https://solidity-by-example.org/signature/](https://solidity-by-example.org/signature/)

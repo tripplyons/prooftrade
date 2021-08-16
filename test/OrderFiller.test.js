@@ -79,7 +79,7 @@ describe('OrderFiller', function () {
         }
     })
 
-    it('Properly work in the buying direction', async function () {
+    it('Should properly work in the buying direction', async function () {
         let expiration = await ethers.provider.getBlockNumber() + 10
 
         let hash = await this.orderFiller.getMessageHash(await this.startsWithToken0.getAddress(), this.token0Supply.toString(), this.token1Supply.toString(), true, expiration, 0)
@@ -94,10 +94,18 @@ describe('OrderFiller', function () {
         let s = sig.s
         let v = sig.v
 
-        await this.orderFiller.connect(this.startsWithToken0).buy(
+        let params = [
             v, r, s, await this.startsWithToken1.getAddress(),
             await this.startsWithToken0.getAddress(), this.token0Supply.toString(), this.token1Supply.toString(), expiration, 0
-        )
+        ]
+
+        console.log(`Gas estimate for buy(): ${(await ethers.provider.estimateGas({
+            from: await this.startsWithToken0.getAddress(),
+            to: this.orderFiller.address,
+            data: this.OrderFiller.interface.encodeFunctionData('buy', params)
+        })).toString()}`)
+
+        await this.orderFiller.connect(this.startsWithToken0).buy(...params)
         
         expect((await this.token0.balanceOf(await this.startsWithToken0.getAddress())).toString()).to.equal('0')
         expect((await this.token1.balanceOf(await this.startsWithToken0.getAddress())).toString()).to.equal(this.token1Supply.toString())
@@ -105,7 +113,7 @@ describe('OrderFiller', function () {
         expect((await this.token1.balanceOf(await this.startsWithToken1.getAddress())).toString()).to.equal('0')
     })
 
-    it('Properly work in the selling direction', async function () {
+    it('Should properly work in the selling direction', async function () {
         let expiration = await ethers.provider.getBlockNumber() + 10
 
         let hash = await this.orderFiller.getMessageHash(await this.startsWithToken1.getAddress(), this.token1Supply.toString(), this.token0Supply.toString(), false, expiration, 0)
@@ -120,10 +128,18 @@ describe('OrderFiller', function () {
         let s = sig.s
         let v = sig.v
 
-        await this.orderFiller.connect(this.startsWithToken1).sell(
+        let params = [
             v, r, s, await this.startsWithToken0.getAddress(),
             await this.startsWithToken1.getAddress(), this.token1Supply.toString(), this.token0Supply.toString(), expiration, 0
-        )
+        ]
+
+        console.log(`Gas estimate for sell(): ${(await ethers.provider.estimateGas({
+            from: await this.startsWithToken1.getAddress(),
+            to: this.orderFiller.address,
+            data: this.OrderFiller.interface.encodeFunctionData('sell', params)
+        })).toString()}`)
+
+        await this.orderFiller.connect(this.startsWithToken1).sell(...params)
         
         expect((await this.token0.balanceOf(await this.startsWithToken0.getAddress())).toString()).to.equal('0')
         expect((await this.token1.balanceOf(await this.startsWithToken0.getAddress())).toString()).to.equal(this.token1Supply.toString())
