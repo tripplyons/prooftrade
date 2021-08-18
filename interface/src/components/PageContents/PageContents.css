@@ -1,0 +1,11 @@
+.PageContents--parent {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.PageContents--container {
+    width: 100%;
+    max-width: 1024px;
+    padding: 16px;
+}

@@ -1,0 +1,27 @@
+.Button {
+    width: 100%;
+    display: inline-block;
+    border: none;
+    padding: 16px;
+    margin: 0;
+    text-decoration: none;
+    background: var(--color-secondary);
+    color: var(--color-main);
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.Button:hover {
+    background: var(--color-secondary-mix);
+}
+
+.Button:active {
+    background: var(--color-main-mix);
+}
+
+.Button:disabled {
+    background-color: var(--color-main-mix);
+}
