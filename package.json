@@ -4,7 +4,8 @@
   "description": "Enables low cost limit orders using signatures on Ethereum",
   "main": "index.js",
   "scripts": {
-    "test": "npx hardhat test"
+    "test": "npx hardhat test",
+    "build": "npx hardhat compile; cp -r artifacts/contracts interface/src/contracts"
   },
   "repository": {
     "type": "git",

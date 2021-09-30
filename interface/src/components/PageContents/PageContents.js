@@ -1,7 +1,9 @@
 import React from 'react';
 import { ethers } from 'ethers'
 import './PageContents.css';
+import Header from '../Header/Header';
 import ConnectToMetaMask from '../ConnectToMetaMask/ConnectToMetaMask';
+import Signer from '../Signer/Signer';
 
 export default class PageContents extends React.Component {
     constructor(props) {
@@ -20,7 +22,13 @@ export default class PageContents extends React.Component {
         return (
             <div className="PageContents--parent">
                 <div className="PageContents--container">
+                    <Header />
+                </div>
+                <div className="PageContents--container">
                     <ConnectToMetaMask onClick={this.connectToMetaMask.bind(this)} provider={this.state.provider} />
+                </div>
+                <div className="PageContents--container">
+                    <Signer provider={this.state.provider} />
                 </div>
             </div>
         );

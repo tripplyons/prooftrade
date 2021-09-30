@@ -4,12 +4,12 @@
     --color-secondary-mix: #456;
     --color-secondary: #123;
     background-color: var(--color-main);
+    font-size: 14px;
 }
 
 * {
     color: var(--color-secondary);
     box-sizing: border-box;
-    font-size: 14px;
 }
 
 body {

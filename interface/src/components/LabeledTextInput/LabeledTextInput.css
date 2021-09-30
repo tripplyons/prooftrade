@@ -1,18 +1,18 @@
-.ConnectToMetaMask--container {
+.LabeledTextInput--container {
     display: flex;
     flex-direction: row;
     width: 100%;
 }
-.ConnectToMetaMask--column {
+.LabeledTextInput--column {
     flex: 1;
     padding: 16px;
 }
 
 @media only screen and (max-width: 800px) {
-    .ConnectToMetaMask--container {
+    .LabeledTextInput--container {
         display: inline-block;
     }
-    .ConnectToMetaMask--column {
+    .LabeledTextInput--column {
         width: 100%;
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import './ButtonAlignedText.css';
+import './AlignedText.css';
 
-export default class ButtonAlignedText extends React.Component {
+export default class AlignedText extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -9,7 +9,7 @@ export default class ButtonAlignedText extends React.Component {
 
     render() {
         return (
-            <div className="ButtonAlignedText">
+            <div className="AlignedText">
                 {this.props.children}
             </div>
         );

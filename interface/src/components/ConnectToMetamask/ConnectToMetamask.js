@@ -1,7 +1,6 @@
-// import { ethers } from 'ethers';
 import React from 'react';
 import Button from '../Button/Button';
-import ButtonAlignedText from '../ButtonAlignedText/ButtonAlignedText';
+import AlignedText from '../AlignedText/AlignedText';
 import './ConnectToMetaMask.css';
 
 export default class ConnectToMetaMask extends React.Component {
@@ -45,21 +44,24 @@ export default class ConnectToMetaMask extends React.Component {
 
     render() {
         return (
-            <div className="ConnectToMetaMask--container">
-                <div className="ConnectToMetaMask--column">
-                    <Button
-                        onClick={this.props.onClick}
-                        disabled={this.props.provider != null}
-                    >
-                        {
-                            this.props.provider == null ? "Connect to MetaMask" : "Connected to MetaMask"
-                        }
-                    </Button>
-                </div>
-                <div className="ConnectToMetaMask--column">
-                    <ButtonAlignedText>
-                        {this.state.connectedWallet == null ? "No account connected" : this.state.connectedWallet}
-                    </ButtonAlignedText>
+            <div>
+                <h2>Connect to MetaMask:</h2>
+                <div className="ConnectToMetaMask--container">
+                    <div className="ConnectToMetaMask--column">
+                        <AlignedText>
+                            {this.state.connectedWallet == null ? "No account connected" : this.state.connectedWallet}
+                        </AlignedText>
+                    </div>
+                    <div className="ConnectToMetaMask--column">
+                        <Button
+                            onClick={this.props.onClick}
+                            disabled={this.props.provider != null}
+                        >
+                            {
+                                this.props.provider == null ? "Connect to MetaMask" : "Connected to MetaMask"
+                            }
+                        </Button>
+                    </div>
                 </div>
             </div>
         );
