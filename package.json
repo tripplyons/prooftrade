@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx hardhat test",
-    "build": "npx hardhat compile; cp -r artifacts/contracts interface/src/contracts"
+    "build": "npx hardhat compile"
   },
   "repository": {
     "type": "git",
