@@ -22,7 +22,7 @@ A low-cost orderbook-based decentralized exchange for Ethereum
 - Smart Contracts
   - [Solidity v0.6.12](https://docs.soliditylang.org/en/v0.6.12/) - smart contracts written in Solidity
   - [Hardhat](https://hardhat.org/) - for tests and deployment
-- Web Interface
+- [Web Interface](https://prooftrade.vercel.app/) - a frontend for using the contracts
   - [Next.js](https://nextjs.org/) - web framework
   - [MUI](https://mui.com/) - styles and components
   - [use-ethers-modal](https://github.com/tripplyons/use-ethers-modal) - an ethers.js provider (made by me)
